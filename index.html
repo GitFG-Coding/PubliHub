@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Executor</title>
+    <style>
+        textarea {
+            width: 100%;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <textarea id="code" placeholder="Digit Your JavaScript Code Here."></textarea>
+    <button onclick="executeCode()">Execute</button>
+    <div id="result"></div>
+
+    <script>
+        function executeCode() {
+            const code = document.getElementById('code').value;
+            const result = document.getElementById('result');
+            result.textContent = '';
+
+            try {
+                      (function() {
+                    eval(code);
+                })();
+            } catch (error) {
+                result.textContent = 'Error: ' + error.message;
+            }
+        }
+    </script>
+</body>
+</html>
